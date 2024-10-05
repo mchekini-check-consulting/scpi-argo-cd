@@ -9,7 +9,7 @@ spec:
     path: "20-custom-resources/argo-cd/prd"
     targetRevision: main
   destination:
-    namespace: argo-cd
+    namespace: argocd
     name: in-cluster
   project: default
   syncPolicy:
