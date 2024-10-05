@@ -6,6 +6,7 @@ spec:
   source:
     repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd.git"
     path: "00-namespaces/prd"
+    targetRevision: main
   destination:
     name: "in-cluster"
     namespace: argocd
