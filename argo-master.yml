@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: bootstrap
-  namespace: default
+  namespace: argocd
 spec:
   source:
     repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd.git"
