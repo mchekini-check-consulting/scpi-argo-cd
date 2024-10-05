@@ -6,7 +6,7 @@ spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: lets-encrypt-prd
+      name: lets-encrypt
     solvers:
       - dns01:
           route53:
