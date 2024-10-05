@@ -19,7 +19,7 @@ spec:
       source:
         repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd"
         targetRevision: main
-        path: '{{ path[1] }}'
+        path: '{{ path }}'
       project: default
       syncPolicy:
         automated:
