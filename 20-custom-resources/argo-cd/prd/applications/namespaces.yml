@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespace
+spec:
+  source:
+    repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd.git"
+    path: "00-namespaces/prd"
+  destination:
+    name: "in-cluster"
+    namespace: argocd
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

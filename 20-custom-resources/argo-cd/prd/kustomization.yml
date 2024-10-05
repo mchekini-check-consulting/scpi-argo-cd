@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: default
 
 resources:
-  - resources/nginx.yml
+  - applications/namespaces.yml
