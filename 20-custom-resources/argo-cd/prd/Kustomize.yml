@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: jenkins
 
 resources:
-  - nginx.yml
+  - resources/nginx.yml
