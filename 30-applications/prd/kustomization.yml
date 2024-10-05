@@ -3,5 +3,3 @@ kind: Kustomization
 
 namespace: default
 
-resources:
-  - nginx.yml
