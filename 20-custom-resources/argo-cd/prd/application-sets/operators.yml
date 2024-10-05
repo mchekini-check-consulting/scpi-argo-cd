@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: operators
+  name: "operators-prd"
 spec:
   generators:
     - git:
@@ -13,14 +13,14 @@ spec:
     metadata:
       name: '{{ path[1] }}-operator'
     spec:
-      destination:
-       name: in-cluster
-       namespace: '{{ path[1] }}'
+      project: '{{ path[1] }}'
       source:
         repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd"
         targetRevision: main
         path: '{{ path }}'
-      project: default
+      destination:
+        name: in-cluster
+        namespace: '{{ path[1] }}'
       syncPolicy:
         automated:
           prune: true
