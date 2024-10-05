@@ -13,7 +13,7 @@ spec:
     metadata:
       name: '{{ path[1] }}-operator'
     spec:
-      project: '{{ path[1] }}'
+      project: default
       source:
         repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd"
         targetRevision: main
