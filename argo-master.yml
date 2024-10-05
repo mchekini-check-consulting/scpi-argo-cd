@@ -4,11 +4,10 @@ metadata:
   name: bootstrap
   namespace: default
 spec:
-
   source:
     repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd.git"
     path: "20-custom-resources/argo-cd/prd"
-    targetRevision: HEAD
+    targetRevision: main
   destination:
     namespace: argo-cd
     name: in-cluster
