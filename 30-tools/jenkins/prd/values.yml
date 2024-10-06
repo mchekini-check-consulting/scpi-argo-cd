@@ -1,2 +1,3 @@
 jenkinsUser: admin
 jenkinsPassword: admin-admin
+replicaCount: 1
