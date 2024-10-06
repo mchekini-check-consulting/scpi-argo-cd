@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: applications
+spec:
+  generators:
+    - git:
+        repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd"
+        revision: main
+        directories:
+          - path: "40-applications/*/*"
+  template:
+    metadata:
+      name: '{{ path[1] }}-{{ path[2] }}'
+    spec:
+      project: default
+      source:
+        repoURL: "https://github.com/mchekini-check-consulting/{{ path[1] }}"
+        targetRevision: main
+        path: helm-chart
+        helm:
+          releaseName: "{{ path[1] }}"
+      destination:
+        name: in-cluster
+        namespace: scpi-invest
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true

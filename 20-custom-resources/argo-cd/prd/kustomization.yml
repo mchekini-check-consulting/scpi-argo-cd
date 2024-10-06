@@ -5,3 +5,4 @@ resources:
   - applications/namespaces.yml
   - application-sets/operators.yml
   - application-sets/tools.yml
+  - application-sets/applications.yml
