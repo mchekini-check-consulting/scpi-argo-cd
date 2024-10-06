@@ -5,3 +5,4 @@ resources:
   - jenkins.yml
   - keycloak.yml
   - cert-manager.yml
+  - scpi-invest.yml
