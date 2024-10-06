@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - applications/namespaces.yml
   - application-sets/operators.yml
-  - applications/applications.yml
