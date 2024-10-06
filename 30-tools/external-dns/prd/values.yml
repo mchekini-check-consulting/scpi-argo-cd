@@ -14,7 +14,7 @@ rbac:
 
 serviceAccount:
   create: true
-  name: external-dns.yml
+  name: external-dns
 
 #txtOwnerId: pro-epargne-k8s-cluster
 
