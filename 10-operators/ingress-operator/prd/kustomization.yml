@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ingress-nginx
+labels:
+  - pairs:
+      argocd.argoproj.io/instance: ingress-nginx-operator
+    includeSelectors: true
+
+helmCharts:
+  - name: ingress-nginx
+    repo: https://kubernetes.github.io/ingress-nginx
+    releaseName: ingress-nginx
+    version: 4.9.1
