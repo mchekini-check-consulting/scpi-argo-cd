@@ -7,3 +7,4 @@ resources:
   - cert-manager.yml
   - scpi-invest.yml
   - ingress-nginx.yml
+  - argocd.yml
