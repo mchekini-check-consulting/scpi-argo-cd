@@ -8,3 +8,4 @@ resources:
   - scpi-invest.yml
   - ingress-nginx.yml
   - argocd.yml
+  - external-dns.yml
