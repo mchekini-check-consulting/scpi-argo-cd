@@ -24,7 +24,7 @@ logLevel: debug
 aws:
   region: us-east-1
   credentials:
-    secretName: cert-manager
+    secretName: external-dns
 
 sources:
   - service
