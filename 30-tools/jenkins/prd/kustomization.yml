@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: jenkins
+
+
+helmCharts:
+  - name: jenkins
+    releaseName: jenkins
+    repo: https://charts.bitnami.com/bitnami
+    version: 13.4.23
+    valuesFile: values.yml
