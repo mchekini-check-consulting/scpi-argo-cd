@@ -6,3 +6,4 @@ resources:
   - keycloak.yml
   - cert-manager.yml
   - scpi-invest.yml
+  - ingress-nginx.yml
