@@ -30,7 +30,7 @@ spec:
               value: h2
             - name: PROXY_ADDRESS_FORWARDING
               value: "true"
-          command: ["start-dev"]
+          args: ["start-dev"]
       restartPolicy: Always
 
 
