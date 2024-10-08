@@ -20,7 +20,7 @@ spec:
           image: quay.io/keycloak/keycloak:21.1.1
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 8443
           env:
             - name: KEYCLOAK_ADMIN
               value: admin
