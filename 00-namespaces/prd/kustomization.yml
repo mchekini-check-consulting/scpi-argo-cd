@@ -10,3 +10,4 @@ resources:
   - argocd.yml
   - external-dns.yml
   - nginx.yml
+  - vault.yml
