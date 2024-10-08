@@ -3,8 +3,9 @@ kind: Kustomization
 namespace: keycloak
 
 
-resources:
-  - certificate.yml
-  - deployment.yml
-  - service.yml
-  - ingress.yml
+helmCharts:
+  - name: keycloak
+    repo: https://charts.bitnami.com/bitnami
+    releaseName: keycloak
+    version: 23.0.0
+    valuesFile: values.yml
