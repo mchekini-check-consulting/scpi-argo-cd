@@ -1,5 +1,5 @@
 postgresql:
-  enabled: false
+  enabled: true
 
 auth:
   adminUser: admin
