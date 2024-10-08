@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: keycloak
+                name: nginx
                 port:
                   number: 80
   tls:
