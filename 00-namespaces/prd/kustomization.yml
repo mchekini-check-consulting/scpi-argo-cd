@@ -9,3 +9,4 @@ resources:
   - ingress-nginx.yml
   - argocd.yml
   - external-dns.yml
+  - nginx.yml
