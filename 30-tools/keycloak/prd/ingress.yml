@@ -5,15 +5,10 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
-    nginx.ingress.kubernetes.io/proxy-set-header: |
-        Host $host;
-        X-Forwarded-For $proxy_add_x_forwarded_for;
-        X-Real-IP $remote_addr;
-        X-Forwarded-Host $host;
-        X-Forwarded-Proto $scheme;
-        X-Forwarded-Port $server_port;
-    nginx.ingress.kubernetes.io/server-snippet: |
-      add_header Content-Security-Policy "frame-src 'self' https://keycloak.check-consulting.net" always;
+    nginx.ingress.kubernetes.io/x-forwarded-for: $proxy_add_x_forwarded_for
+    nginx.ingress.kubernetes.io/x-real-ip: $remote_addr
+    nginx.ingress.kubernetes.io/x-forwarded-host: $host
+    nginx.ingress.kubernetes.io/x-forwarded-proto: $scheme
 spec:
   ingressClassName: nginx
   rules:
