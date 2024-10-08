@@ -11,9 +11,9 @@ helmCharts:
     releaseName: consul
     repo: https://helm.releases.hashicorp.com
     version: 1.3.3
-    valuesFile: consul-values.yaml
+    valuesFile: consul-values.yml
   - name: vault
     releaseName: vault
     repo: https://helm.releases.hashicorp.com
     version: 0.27.0
-    valuesFile: vault-values.yaml
+    valuesFile: vault-values.yml
