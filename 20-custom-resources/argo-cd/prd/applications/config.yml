@@ -4,8 +4,8 @@ metadata:
   name: config-prd
 spec:
   destination:
-    name: in-cluster
-    namespace: config
+    name: "in-cluster"
+    namespace: argocd
   project: default
   source:
     repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd.git"
