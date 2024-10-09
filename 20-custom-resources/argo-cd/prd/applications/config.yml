@@ -9,7 +9,8 @@ spec:
   project: default
   source:
     repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd.git"
-    path: "05-config"
+    path: "05-config/prd"
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true
