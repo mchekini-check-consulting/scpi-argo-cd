@@ -16,5 +16,5 @@ helmCharts:
   - name: kibana
     releaseName: kibana
     repo: https://charts.bitnami.com/bitnami
-    version: 21.3.21
+    version: 11.2.23
     valuesFile: kibana-values.yml
