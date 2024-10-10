@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: argocd
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx
   rules:
@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: argocd-server
+                name: argo-cd-argocd-server
                 port:
                   number: 80
   tls:
