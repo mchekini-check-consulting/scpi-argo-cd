@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: logging
+
+
+resources:
+
+
+
+helmCharts:
+  - name: elasticsearch
+    releaseName: elasticsearch
+    repo: https://charts.bitnami.com/bitnami
+    version: 8.8.0
+    valuesFile: elasticsearch-values.yml
+
+  - name: kibana
+    releaseName: kibana
+    repo: https://charts.bitnami.com/bitnami
+    version: 8.8.0
+    valuesFile: kibana-values.yml

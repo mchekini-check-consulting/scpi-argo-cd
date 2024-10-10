@@ -11,3 +11,4 @@ resources:
   - external-dns.yml
   - nginx.yml
   - vault.yml
+  - logging.yml
