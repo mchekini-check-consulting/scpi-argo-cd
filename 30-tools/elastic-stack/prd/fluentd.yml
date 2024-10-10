@@ -60,7 +60,7 @@ spec:
     spec:
       containers:
         - name: fluentd
-          image: fluent/fluentd:latest
+          image: fluent/fluentd:v1.15.3-debian
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
               value: "elasticsearch"
