@@ -17,7 +17,7 @@ spec:
                 name: argocd-server
                 port:
                   number: 80
-#  tls:
-#    - hosts:
-#        - argocd.check-consulting.net
-#      secretName: argocd-tls
+  tls:
+    - hosts:
+        - argocd.check-consulting.net
+      secretName: argocd-tls

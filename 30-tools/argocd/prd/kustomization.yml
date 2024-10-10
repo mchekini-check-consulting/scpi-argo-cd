@@ -4,6 +4,6 @@ namespace: argocd
 
 
 
-resources:
-  - certificate.yml
-  - ingress.yml
+#resources:
+#  - certificate.yml
+#  - ingress.yml
