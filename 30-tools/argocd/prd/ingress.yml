@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: argocd
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
@@ -18,7 +17,7 @@ spec:
                 name: argocd-server
                 port:
                   number: 80
-  tls:
-    - hosts:
-        - argocd.check-consulting.net
-      secretName: argocd-tls
+#  tls:
+#    - hosts:
+#        - argocd.check-consulting.net
+#      secretName: argocd-tls
