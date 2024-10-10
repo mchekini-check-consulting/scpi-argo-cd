@@ -6,6 +6,9 @@ namespace: logging
 resources:
   - elastic-deployment.yml
   - kibana.deployment.yml
+  - service-account.yml
+  - cluster-role.yml
+  - cluster-role-binding.yml
   - fluentd.yml
   - certificate.yml
   - ingress.yml
