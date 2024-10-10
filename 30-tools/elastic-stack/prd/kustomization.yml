@@ -1,20 +1,3 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: logging
-
-
-
-
-
-helmCharts:
-  - name: elasticsearch
-    releaseName: elasticsearch
-    repo: https://charts.bitnami.com/bitnami
-    version: 21.3.21
-    valuesFile: elasticsearch-values.yml
-
-  - name: kibana
-    releaseName: kibana
-    repo: https://charts.bitnami.com/bitnami
-    version: 11.2.23
-    valuesFile: kibana-values.yml

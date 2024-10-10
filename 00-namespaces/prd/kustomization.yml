@@ -12,3 +12,4 @@ resources:
   - nginx.yml
   - vault.yml
   - logging.yml
+  - sonarqube.yml
