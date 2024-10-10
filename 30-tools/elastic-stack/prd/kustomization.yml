@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: logging
 
 
-resources:
 
 
 
@@ -11,11 +10,11 @@ helmCharts:
   - name: elasticsearch
     releaseName: elasticsearch
     repo: https://charts.bitnami.com/bitnami
-    version: 16.0.0
+    version: 21.3.21
     valuesFile: elasticsearch-values.yml
 
   - name: kibana
     releaseName: kibana
     repo: https://charts.bitnami.com/bitnami
-    version: 16.0.0
+    version: 21.3.21
     valuesFile: kibana-values.yml
