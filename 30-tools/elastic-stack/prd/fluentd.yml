@@ -5,47 +5,32 @@ metadata:
   namespace: logging
 data:
   fluent.conf: |
-    <source>
-        @type tail
-        path /var/log/containers/*.log
-        pos_file /var/log/fluentd-containers.log.pos
-        tag kubernetes.*
-        <parse>
-            @type regexp
-            expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
-            time_format %Y-%m-%d %H:%M:%S.%L
-       </parse>
-    </source>
+   <source>
+     @type tail
+     path /var/log/containers/*.log
+     pos_file /var/log/fluentd-containers.log.pos
+     tag kubernetes.*
+     <parse>
+       @type json
+     </parse>
+   </source>
+  
+   <filter kubernetes.**>
+     @type kubernetes_metadata   
+   </filter>
+    
+   <match **>
+     @type elasticsearch
+     host "elasticsearch"
+     port "9200"
+     logstash_format true
+     logstash_prefix fluentd
+     include_tag_key true
+     flush_interval 5s
+   </match>
 
-    <filter kubernetes.**>
-       @type grep
-       <regexp>
-            key $.kubernetes.labels.app
-            pattern ^scpi-invest-api$
-       </regexp>
-    </filter>
-    
-    <filter kubernetes.**>
-        @type parser
-        key_name log
-        <parse>
-            @type regexp
-            expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
-            time_format %Y-%m-%d %H:%M:%S.%L
-        </parse>
-    </filter>
 
-    <match **>
-      @type elasticsearch
-      host "elasticsearch"
-      port "9200"
-      logstash_format true
-      logstash_prefix fluentd
-      include_tag_key true
-      flush_interval 5s
-    </match>
-    
-    
+
 
 ---
 apiVersion: apps/v1
@@ -89,3 +74,5 @@ spec:
         - name: fluentd-config
           configMap:
             name: fluentd-config
+
+
