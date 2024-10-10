@@ -39,10 +39,6 @@ spec:
               name: http
             - containerPort: 9300
               name: transport
-      volumes:
-        - name: elasticsearch-data
-          persistentVolumeClaim:
-            claimName: elasticsearch-pvc
 
 ---
 apiVersion: v1
