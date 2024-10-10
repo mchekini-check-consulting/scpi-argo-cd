@@ -60,7 +60,7 @@ spec:
     spec:
       containers:
         - name: fluentd
-          image: fluentd
+          image: quay.io/fluent/fluentd-kubernetes-daemonset
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
               value: "elasticsearch"
