@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: argo-cd-argocd-server
+                name: argocd-argocd-server
                 port:
                   number: 80
   tls:
