@@ -20,5 +20,5 @@ spec:
           image: sonarqube:community
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 9000
       restartPolicy: Always
