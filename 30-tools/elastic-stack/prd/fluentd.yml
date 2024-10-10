@@ -20,17 +20,19 @@ data:
     <filter kubernetes.**>
        @type grep
        <regexp>
-       key $.kubernetes.labels.app
-       pattern ^scpi-invest-api$
+            key $.kubernetes.labels.app
+            pattern ^scpi-invest-api$
        </regexp>
     </filter>
     
     <filter kubernetes.**>
         @type parser
-        format /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
         key_name log
-        time_key time
-        time_format %Y-%m-%d %H:%M:%S.%L
+        <parse>
+            @type regexp
+            expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
+            time_format %Y-%m-%d %H:%M:%S.%L
+        </parse>
     </filter>
 
     <match **>
