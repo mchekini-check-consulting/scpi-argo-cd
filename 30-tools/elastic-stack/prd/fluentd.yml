@@ -11,8 +11,10 @@ data:
         pos_file /var/log/fluentd-containers.log.pos
         tag kubernetes.*
         <parse>
-        @type none
-        </parse>
+            @type regexp
+            expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
+            time_format %Y-%m-%d %H:%M:%S.%L
+       </parse>
     </source>
 
     <filter kubernetes.**>
