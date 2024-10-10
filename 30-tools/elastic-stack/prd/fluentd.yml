@@ -60,7 +60,7 @@ spec:
     spec:
       containers:
         - name: fluentd
-          image: fluent/fluentd-kubernetes-daemonset:v1.16.3-elasticsearch7-debian
+          image: fluentd
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
               value: "elasticsearch"
