@@ -9,19 +9,23 @@ spec:
         revision: main
         directories:
           - path: "40-applications/*/*"
+
   template:
     metadata:
       name: '{{ path[1] }}-{{ path[2] }}'
     spec:
       project: default
-      source:
-        repoURL: "https://github.com/mchekini-check-consulting/{{ path[1] }}"
-        targetRevision: main
-        path: helm-chart
-        helm:
-          releaseName: "{{ path[1] }}"
-          valueFiles:
-            - "https://raw.githubusercontent.com/mchekini-check-consulting/scpi-argo-cd/refs/heads/main/40-applications/{{ path[1] }}/{{ path[2] }}/values.yml"
+      sources:
+        - repoURL: "https://github.com/mchekini-check-consulting/{{ path[1] }}"
+          targetRevision: main
+          path: helm-chart
+          helm:
+            releaseName: "{{ path[1] }}"
+            valueFiles:
+              - $values/40-applications/{{ path[1] }}/{{ path[2] }}/values.yml
+        - repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd"
+          targetRevision: main
+          ref: values
       destination:
         name: in-cluster
         namespace: scpi-invest
