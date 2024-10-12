@@ -15,6 +15,13 @@ spec:
       labels:
         app: jenkins
     spec:
+      initContainers:
+        - name: volume-permission
+          image: busybox
+          command: [ 'sh', '-c', 'chown -R 1000:1000 /var/jenkins_home' ]
+          volumeMounts:
+            - name: jenkins-volume
+              mountPath: /var/jenkins_home
       containers:
         - name: jenkins
           image: jenkins/jenkins
