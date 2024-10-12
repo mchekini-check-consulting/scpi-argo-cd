@@ -20,6 +20,8 @@ spec:
         path: helm-chart
         helm:
           releaseName: "{{ path[1] }}"
+          valueFiles:
+            - "https://raw.githubusercontent.com/mchekini-check-consulting/scpi-argo-cd/refs/heads/main/40-applications/{{ path[1] }}/{{ path[2] }}/values.yml"
       destination:
         name: in-cluster
         namespace: scpi-invest
