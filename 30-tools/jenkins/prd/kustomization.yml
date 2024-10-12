@@ -4,13 +4,7 @@ namespace: jenkins
 
 
 resources:
+  - deployment.yml
+  - service.yml
   - certificate.yml
   - ingress.yml
-
-
-helmCharts:
-  - name: jenkins
-    releaseName: jenkins
-    repo: https://charts.bitnami.com/bitnami
-    version: 13.4.23
-    valuesFile: values.yml
