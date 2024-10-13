@@ -5,5 +5,5 @@ namespace: argocd
 
 
 #resources:
-#  - certificate.yml
+#  - pg-web-certificate.yml
 #  - ingress.yml

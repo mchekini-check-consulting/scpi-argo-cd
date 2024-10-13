@@ -8,10 +8,10 @@ spec:
         repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd"
         revision: main
         directories:
-          - path: "30-tools/*/*"
+          - path: "30-tools/*"
   template:
     metadata:
-      name: '{{ path[1] }}-{{ path[2] }}'
+      name: '{{ path[1] }}'
     spec:
       project: default
       destination:
