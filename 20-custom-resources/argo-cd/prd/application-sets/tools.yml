@@ -16,7 +16,7 @@ spec:
       project: default
       destination:
         name: in-cluster
-        namespace: '{{ path[2] }}'
+        namespace: '{{ path[1] }}-{{ path[2] }}'
       source:
         repoURL: "https://github.com/mchekini-check-consulting/scpi-argo-cd"
         path: '{{ path }}'
