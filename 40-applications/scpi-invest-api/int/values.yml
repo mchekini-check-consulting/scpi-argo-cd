@@ -3,3 +3,4 @@ image:
 
 
 ingressPrefix: int
+ingressPgWebPrefix: integration
