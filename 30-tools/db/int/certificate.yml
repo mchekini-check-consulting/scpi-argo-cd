@@ -9,7 +9,7 @@ spec:
     name: lets-encrypt
   secretName: pg-db-tls-int
   dnsNames:
-    - int.pg-db.check-consulting.net
+    - integration.pg-db.check-consulting.net
   usages:
     - digital signature
     - key encipherment

@@ -9,7 +9,7 @@ spec:
     name: lets-encrypt
   secretName: pg-db-tls-qua
   dnsNames:
-    - qua.pg-db.check-consulting.net
+    - qualification.pg-db.check-consulting.net
   usages:
     - digital signature
     - key encipherment
