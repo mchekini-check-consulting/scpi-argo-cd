@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: int.pg-db.check-consulting.net
+    - host: integration.pg-db.check-consulting.net
       http:
         paths:
           - path: /
@@ -19,5 +19,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - int.pg-db.check-consulting.net
+        - integration.pg-db.check-consulting.net
       secretName: pg-db-tls-int

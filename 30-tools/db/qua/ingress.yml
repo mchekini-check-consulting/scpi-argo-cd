@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: qua.pg-db.check-consulting.net
+    - host: qualification.pg-db.check-consulting.net
       http:
         paths:
           - path: /
@@ -19,5 +19,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - qua.pg-db.check-consulting.net
+        - qualification.pg-db.check-consulting.net
       secretName: pg-db-tls-qua
