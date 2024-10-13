@@ -4,11 +4,11 @@ metadata:
   name: keycloak
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
-    nginx.ingress.kubernetes.io/x-forwarded-for: $proxy_add_x_forwarded_for
-    nginx.ingress.kubernetes.io/x-real-ip: $remote_addr
-    nginx.ingress.kubernetes.io/x-forwarded-host: $host
-    nginx.ingress.kubernetes.io/x-forwarded-proto: $scheme
+#    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+#    nginx.ingress.kubernetes.io/x-forwarded-for: $proxy_add_x_forwarded_for
+#    nginx.ingress.kubernetes.io/x-real-ip: $remote_addr
+#    nginx.ingress.kubernetes.io/x-forwarded-host: $host
+#    nginx.ingress.kubernetes.io/x-forwarded-proto: $scheme
 spec:
   ingressClassName: nginx
   rules:
