@@ -20,4 +20,4 @@ spec:
   tls:
     - hosts:
         - qua.pg-db.check-consulting.net
-      secretName: pg-db-tls
+      secretName: pg-db-tls-qua
