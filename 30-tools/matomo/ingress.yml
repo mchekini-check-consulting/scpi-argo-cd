@@ -4,7 +4,6 @@ metadata:
   name: matomo
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
   rules:
@@ -21,4 +20,4 @@ spec:
   tls:
     - hosts:
         - matomo.check-consulting.net
-      secretName: keycloak-tls
+      secretName: matomo-tls
