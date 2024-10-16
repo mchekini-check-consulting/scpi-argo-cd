@@ -68,7 +68,6 @@ spec:
       containers:
         - name: fluentd
           image: quay.io/fluent/fluentd-kubernetes-daemonset
-          command: ["/bin/sh", "-c", "sleep 600; exec fluentd"]
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
               value: "elasticsearch"
