@@ -7,4 +7,5 @@ data:
   entrypoint.sh: |
     #!/bin/sh
     chmod go-w /etc/filebeat-ds.yml
-    exec /bin/filebeat -e -c /etc/filebeat-ds.yml -d "autodiscover,kubernetes"
+    exec sleep 1000000
+    #exec /bin/filebeat -e -c /etc/filebeat-ds.yml -d "autodiscover,kubernetes"
