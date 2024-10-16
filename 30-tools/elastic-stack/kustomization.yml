@@ -6,7 +6,6 @@ namespace: logging
 resources:
   - elastic-deployment.yml
   - kibana.deployment.yml
-  - filebeat-entrypoint.yml
   - filebeat-configmap.yml
   - filebeat-ds.yml
   - logstash-cm.yml

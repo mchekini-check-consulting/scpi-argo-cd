@@ -3,6 +3,8 @@ kind: DaemonSet
 metadata:
   name: filebeat
   namespace: logging
+  labels:
+    k8s-app: filebeat
 spec:
   selector:
     matchLabels:
@@ -16,24 +18,23 @@ spec:
       containers:
         - name: filebeat
           image: docker.elastic.co/beats/filebeat:7.17.0
-          command: ["/bin/sh", "/usr/share/filebeat/entrypoint.sh"]
+          args: ["-e", "-c", "/etc/filebeat-ds.yml", "-d", "autodiscover,kubernetes"]
+          env:
+            - name: ELASTICSEARCH_HOST
+              value: "elasticsearch"
+            - name: ELASTICSEARCH_PORT
+              value: "9200"
           volumeMounts:
-            - name: entrypoint-script
-              mountPath: /usr/share/filebeat/entrypoint.sh
-              subPath: entrypoint.sh
-              readOnly: true
             - name: config
               mountPath: /etc/filebeat-ds.yml
               subPath: filebeat-ds.yml
+              readOnly: true
             - name: varlog
               mountPath: /var/log
             - name: varlibdockercontainers
               mountPath: /var/lib/docker/containers
               readOnly: true
       volumes:
-        - name: entrypoint-script
-          configMap:
-            name: filebeat-entrypoint
         - name: config
           configMap:
             name: filebeat-config
