@@ -46,6 +46,7 @@ data:
       logstash_prefix fluentd
       include_tag_key true
       flush_interval 5s
+      content_type "application/json" 
     </match>
     
 
