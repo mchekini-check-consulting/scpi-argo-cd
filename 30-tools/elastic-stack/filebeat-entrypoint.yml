@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filebeat-entrypoint
+  namespace: logging
+data:
+  entrypoint.sh: |
+    #!/bin/sh
+    chmod go-w /etc/filebeat-ds.yml
+    exec /usr/share/filebeat/bin/filebeat -e -c /etc/filebeat-ds.yml -d "autodiscover,kubernetes"

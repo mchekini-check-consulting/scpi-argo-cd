@@ -13,29 +13,27 @@ spec:
         k8s-app: filebeat
     spec:
       serviceAccountName: fluentd
-      initContainers:
-        - name: init-chmod
-          image: busybox
-          command: ["sh", "-c", "chmod go-w /etc/filebeat-ds.yml"]
-          volumeMounts:
-            - name: config
-              mountPath: /etc/filebeat-ds.yml
-              subPath: filebeat-ds.yml
       containers:
         - name: filebeat
           image: docker.elastic.co/beats/filebeat:7.17.0
-          args: ["-e", "-c", "/etc/filebeat-ds.yml", "-d", "autodiscover,kubernetes"]
+          command: ["/bin/sh", "/usr/share/filebeat/entrypoint.sh"]
           volumeMounts:
+            - name: entrypoint-script
+              mountPath: /usr/share/filebeat/entrypoint.sh
+              subPath: entrypoint.sh
+              readOnly: true
             - name: config
               mountPath: /etc/filebeat-ds.yml
               subPath: filebeat-ds.yml
-              readOnly: true   # Le fichier sera lu en lecture seule après l'init container
             - name: varlog
               mountPath: /var/log
             - name: varlibdockercontainers
               mountPath: /var/lib/docker/containers
               readOnly: true
       volumes:
+        - name: entrypoint-script
+          configMap:
+            name: filebeat-entrypoint
         - name: config
           configMap:
             name: filebeat-config
@@ -45,4 +43,3 @@ spec:
         - name: varlibdockercontainers
           hostPath:
             path: /var/lib/docker/containers
-
