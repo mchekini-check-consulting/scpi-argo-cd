@@ -7,7 +7,7 @@ data:
   fluent.conf: |
     <source>
         @type tail
-        path /var/log/containers/*.log
+        path /var/log/containers/scpi-invest-api*.log
         pos_file /var/log/fluentd-containers.log.pos
         tag kubernetes.*
         <parse>
