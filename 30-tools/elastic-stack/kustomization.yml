@@ -6,9 +6,14 @@ namespace: logging
 resources:
   - elastic-deployment.yml
   - kibana.deployment.yml
+  - filebeat-configmap.yml
+  - filebeat-ds.yml
+  - logstash-cm.yml
+  - logstash-deployment.yml
+  - logstash-svc.yml
 #  - service-account.yml
 #  - fluentd-cluster-role.yml
 #  - fluentd-cluster-role-binding.yml
-  - fluentd.yml
+#  - fluentd.yml
   - certificate.yml
   - ingress.yml

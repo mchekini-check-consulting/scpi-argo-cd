@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash-config
+  namespace: logging
+data:
+  logstash.conf: |
+    input {
+      beats {
+        port => 5045
+      }
+    }
+
+    filter {
+      grok {
+        match => {
+           "message" => "%{TIMESTAMP_ISO8601:timestamp} +%{LOGLEVEL:log_level} +%{NUMBER:pid} --- \[%{DATA:thread}\] +%{JAVACLASS:logger} +: %{GREEDYDATA:log_message}"
+        }
+      }
+    }
+
+    output {
+      elasticsearch {
+        hosts => ["elasticsearch:9200"]
+        manage_template => "false"
+        index => "apps-logs"
+      }
+      stdout { codec => rubydebug }
+    }
