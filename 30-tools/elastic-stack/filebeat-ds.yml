@@ -12,7 +12,7 @@ spec:
       labels:
         k8s-app: filebeat
     spec:
-      serviceAccountName: filebeat
+      serviceAccountName: fluentd
       initContainers:
         - name: init-chmod
           image: busybox
