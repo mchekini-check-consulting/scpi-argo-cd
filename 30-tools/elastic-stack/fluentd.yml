@@ -14,7 +14,8 @@ data:
             @type regexp
             expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
             time_format %Y-%m-%d %H:%M:%S.%L
-       </parse>
+        </parse>
+        format none  # Ajout de ce format pour spécifier qu'il n'y a pas de format particulier en amont
     </source>
 
     <filter kubernetes.**>
