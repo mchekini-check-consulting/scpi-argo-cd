@@ -7,5 +7,5 @@ data:
   entrypoint.sh: |
     #!/bin/sh
     chmod go-w /etc/filebeat-ds.yml
-    exec sleep 1000000
+    exec /usr/bin/tini -- /usr/local/bin/docker-entrypoint
     #exec /bin/filebeat -e -c /etc/filebeat-ds.yml -d "autodiscover,kubernetes"
