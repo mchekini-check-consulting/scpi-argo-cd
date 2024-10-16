@@ -63,8 +63,7 @@ spec:
               mountPath: /var/lib/docker/containers
               readOnly: true
             - name: fluentd-config
-              mountPath: /fluentd/etc/fluent.conf
-              subPath: fluent.conf
+              mountPath: /fluentd/etc/
       volumes:
         - name: varlog
           hostPath:
