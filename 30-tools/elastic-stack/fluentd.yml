@@ -35,7 +35,6 @@ data:
             expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
             time_format %Y-%m-%d %H:%M:%S.%L
         </parse>
-        format none
     </filter>
 
     <match **>
