@@ -5,31 +5,45 @@ metadata:
   namespace: logging
 data:
   fluent.conf: |
-   <source>
-     @type tail
-     path /var/log/containers/*.log
-     pos_file /var/log/fluentd-containers.log.pos
-     tag kubernetes.*
-     <parse>
-       @type json
-     </parse>
-   </source>
-  
-   <filter kubernetes.**>
-     @type kubernetes_metadata   
-   </filter>
+    <source>
+        @type tail
+        path /var/log/containers/*.log
+        pos_file /var/log/fluentd-containers.log.pos
+        tag kubernetes.*
+        <parse>
+            @type regexp
+            expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
+            time_format %Y-%m-%d %H:%M:%S.%L
+       </parse>
+    </source>
+
+    <filter kubernetes.**>
+       @type grep
+       <regexp>
+            key $.kubernetes.labels.app
+            pattern ^scpi-invest-api$
+       </regexp>
+    </filter>
     
-   <match **>
-     @type elasticsearch
-     host "elasticsearch"
-     port "9200"
-     logstash_format true
-     logstash_prefix fluentd
-     include_tag_key true
-     flush_interval 5s
-   </match>
+    <filter kubernetes.**>
+        @type parser
+        key_name log
+        <parse>
+            @type regexp
+            expression /^(?<time>[^ ]+ [^ ]+) (?<level>INFO|ERROR|WARN|DEBUG|TRACE) +(?<pid>[^ ]+) --- \[(?<thread>[^\]]+)\] (?<logger>[^ ]+) +: (?<message>.*)$/
+            time_format %Y-%m-%d %H:%M:%S.%L
+        </parse>
+    </filter>
 
-
+    <match **>
+      @type elasticsearch
+      host "elasticsearch"
+      port "9200"
+      logstash_format true
+      logstash_prefix fluentd
+      include_tag_key true
+      flush_interval 5s
+    </match>
 
 
 ---
@@ -51,7 +65,6 @@ spec:
       containers:
         - name: fluentd
           image: quay.io/fluent/fluentd-kubernetes-daemonset
-          command: ["/bin/sh", "-c", "sleep 600; exec fluentd"]
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
               value: "elasticsearch"
