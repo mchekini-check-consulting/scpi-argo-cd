@@ -47,7 +47,7 @@ spec:
       labels:
         app: fluentd
     spec:
-      serviceAccountName: fluentd-admin
+      serviceAccountName: fluentd
       containers:
         - name: fluentd
           image: quay.io/fluent/fluentd-kubernetes-daemonset
