@@ -82,6 +82,7 @@ spec:
               readOnly: true
             - name: fluentd-config
               mountPath: /fluentd/etc/
+              readOnly: false
       volumes:
         - name: varlog
           hostPath:
