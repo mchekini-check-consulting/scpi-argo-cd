@@ -28,7 +28,7 @@ spec:
       containers:
         - name: filebeat
           image: docker.elastic.co/beats/filebeat:7.17.0
-          args: ["-e", "-c", "/tmp/filebeat-ds.yml", "-d", "autodiscover,kubernetes"]
+          args: ["-e", "-c", "/tmp/filebeat-ds.yml"]
           env:
             - name: ELASTICSEARCH_HOST
               value: "elasticsearch"
