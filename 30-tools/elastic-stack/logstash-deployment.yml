@@ -16,9 +16,8 @@ spec:
       containers:
         - name: logstash
           image: docker.elastic.co/logstash/logstash:7.10.1
-          command: [ "sleep 100000" ]
-#          args: [ "-f", "/usr/share/logstash/config/logstash.conf", "--path.data", "datadirectory" ]
-
+          command: [ "sleep", "100000" ]
+          #          args: [ "-f", "/usr/share/logstash/config/logstash.conf", "--path.data", "datadirectory" ]
           ports:
             - containerPort: 5045
           volumeMounts:

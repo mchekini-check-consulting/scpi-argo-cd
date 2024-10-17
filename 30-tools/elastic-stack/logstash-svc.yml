@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
     - name: beats
-      port: 5045
-      targetPort: 5045
+      port: 5044
+      targetPort: 5044
   selector:
     app: logstash
