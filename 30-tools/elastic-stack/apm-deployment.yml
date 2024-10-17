@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apm-server
+  namespace: logging
+  labels:
+    app: apm-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apm-server
+  template:
+    metadata:
+      labels:
+        app: apm-server
+    spec:
+      containers:
+        - name: apm-server
+          image: docker.elastic.co/apm/apm-server:7.17.17
+          ports:
+            - containerPort: 8200
+          command: [ "apm-server", "-e" ]
+          args:
+            - "-E apm-server.rum.enabled=true"
+            - "-E setup.kibana.host=kibana:5601"
+            - "-E setup.template.settings.index.number_of_replicas=0"
+            - "-E apm-server.kibana.enabled=true"
+            - "-E apm-server.kibana.host=kibana:5601"
+            - "-E output.elasticsearch.hosts=[\"elasticsearch:9200\"]"
+          securityContext:
+            capabilities:
+              add: ["CHOWN", "DAC_OVERRIDE", "SETGID", "SETUID"]
+              drop: ["ALL"]
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8200
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 12
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apm-server
+  namespace: logging
+spec:
+  selector:
+    app: apm-server
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8200
+      targetPort: 8200
+  type: ClusterIP
