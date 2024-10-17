@@ -18,11 +18,11 @@ spec:
       initContainers:
         - name: init-copy-config
           image: busybox
-          command: ["sh", "-c", "cp /etc/filebeat-ds.yml /tmp/filebeat-ds.yml && chmod go-w /tmp/filebeat-ds.yml"]
+          command: ["sh", "-c", "cp /etc/filebeat/filebeat-ds.yml /tmp/filebeat-ds.yml && chmod go-w /tmp/filebeat-ds.yml"]
           volumeMounts:
             - name: config
-              mountPath: /etc/filebeat-ds.yml
-              subPath: filebeat-ds.yml
+              mountPath: /etc/filebeat
+              readOnly: true
             - name: config-tmp
               mountPath: /tmp
       containers:
