@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+vapiVersion: apps/v1
 kind: Deployment
 metadata:
   name: apm-server
@@ -51,4 +51,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-
+  name: apm-server
+  namespace: logging
+spec:
+  selector:
+    app: apm-server
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8200
+      targetPort: 8200
+  type: ClusterIP
