@@ -16,7 +16,7 @@ data:
             - rseq
 
     filebeat.inputs:
-      - type: log
+      - type: container
         enabled: true
         paths:
           - /var/log/containers/scpi-invest-api*.log
@@ -37,6 +37,7 @@ data:
 
     # ================================== Outputs ===================================
     output.logstash:
+      enabled: true
       hosts: ["logstash:5045"]
       protocol: "udp"
 
