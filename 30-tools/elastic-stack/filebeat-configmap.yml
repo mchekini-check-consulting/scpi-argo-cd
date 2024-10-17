@@ -34,9 +34,6 @@ data:
     setup.template.settings:
       index.number_of_shards: 1
 
-    # =================================== Kibana ===================================
-    setup.kibana:
-      host: "192.168.1.13:5601"
 
     # ================================== Outputs ===================================
     output.logstash:
