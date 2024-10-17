@@ -19,6 +19,14 @@ data:
            "message" => "%{TIMESTAMP_ISO8601:timestamp} \[%{WORD:environment}\] \[%{DATA:thread}\] %{LOGLEVEL:loglevel} %{JAVACLASS:logger} - %{GREEDYDATA:logmessage}"
         }
       }
+      date {
+         match => ["timestamp", "yyyy-MM-dd HH:mm:ss"]
+         target => "@timestamp"
+      }
+    
+      mutate {
+        remove_field => ["timestamp"]
+      }
     }
 
     output {
