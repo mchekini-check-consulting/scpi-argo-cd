@@ -39,7 +39,7 @@ data:
     output.logstash:
       enabled: true
       hosts: ["logstash:5045"]
-      protocol: "udp"
+      #protocol: "udp"
 
     # ================================= Processors =================================
     processors:
