@@ -10,11 +10,13 @@ data:
         port => 5045
       }
     }
+    
+    
 
     filter {
       grok {
         match => {
-           "message" => "%{TIMESTAMP_ISO8601:timestamp} +%{LOGLEVEL:log_level} +%{NUMBER:pid} --- \[%{DATA:thread}\] +%{JAVACLASS:logger} +: %{GREEDYDATA:log_message}"
+           "message" => "%{TIMESTAMP_ISO8601:timestamp} \[%{WORD:environment}\] \[%{DATA:thread}\] %{LOGLEVEL:loglevel} %{JAVACLASS:logger} - %{GREEDYDATA:logmessage}"
         }
       }
     }
@@ -27,3 +29,6 @@ data:
       }
       stdout { codec => rubydebug }
     }
+    
+    
+    

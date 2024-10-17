@@ -3,3 +3,6 @@ image:
 
 ingressPrefix: qua
 ingressPgWebPrefix: qualification
+
+application:
+  environment: qua

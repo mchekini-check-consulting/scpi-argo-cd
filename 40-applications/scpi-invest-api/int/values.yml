@@ -4,3 +4,7 @@ image:
 
 ingressPrefix: int
 ingressPgWebPrefix: integration
+
+
+application:
+  environment: int

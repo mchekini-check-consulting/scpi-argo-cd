@@ -3,3 +3,7 @@ image:
 
 
 ingressPgWebPrefix: production
+
+
+application:
+  environment: prd
