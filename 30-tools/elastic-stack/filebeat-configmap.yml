@@ -4,7 +4,7 @@ metadata:
   name: filebeat-config
   namespace: logging
 data:
-  filebeat.yml: |
+  filebeat-ds.yml: |
     ###################### Filebeat Configuration Example #########################
 
     # ============================== Filebeat inputs ===============================
