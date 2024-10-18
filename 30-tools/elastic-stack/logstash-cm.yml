@@ -16,7 +16,7 @@ data:
     filter {
       grok {
         match => {
-           "message" => "%{TIMESTAMP_ISO8601:timestamp} \[%{WORD:environment}\] \[%{DATA:thread}\] %{LOGLEVEL:loglevel}  %{GREEDYDATA:logger} - %{GREEDYDATA:logmessage}"
+           "message" => "%{TIMESTAMP_ISO8601:timestamp} \[%{WORD:applicationName}\] \[%{WORD:environment}\] \[%{DATA:thread}\] %{LOGLEVEL:loglevel}  %{GREEDYDATA:logger} - %{GREEDYDATA:logmessage}"
         }
       }
       date {

@@ -12,9 +12,5 @@ resources:
   - logstash-deployment.yml
   - logstash-svc.yml
   - apm-deployment.yml
-#  - service-account.yml
-#  - fluentd-cluster-role.yml
-#  - fluentd-cluster-role-binding.yml
-#  - fluentd.yml
   - certificate.yml
   - ingress.yml
