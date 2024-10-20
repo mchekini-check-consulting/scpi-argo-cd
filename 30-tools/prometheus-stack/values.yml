@@ -10,6 +10,7 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
+    additionalScrapeConfigsSecret: additional-scrape-configs
 
 # Configuration for Alertmanager
 alertmanager:
@@ -47,11 +48,3 @@ kubeEtcd:
   enabled: false
 
 
-#serverFiles:
-#  prometheus.yml:
-#    scrape_configs:
-#      - job_name: 'scpi-invest-api'
-#        scrape_interval: 15s
-#        metrics_path: '/actuator/prometheus'
-#        static_configs:
-#          - targets: ['scpi-invest-api.scpi-invest-int:8080']
