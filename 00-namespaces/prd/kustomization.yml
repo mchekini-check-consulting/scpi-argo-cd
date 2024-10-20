@@ -17,3 +17,4 @@ resources:
   - scpi-invest-qua.yml
   - scpi-invest-prd.yml
   - matomo.yml
+  - monitoring.yml
