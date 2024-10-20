@@ -45,3 +45,11 @@ kubeControllerManager:
 # Disable etcd monitoring if it's not needed
 kubeEtcd:
   enabled: false
+
+
+scrape_configs:
+  - job_name: 'scpi-invest-api'
+    scrape_interval: 15s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['scpi-invest-api.scpi-invest-int:8080']
