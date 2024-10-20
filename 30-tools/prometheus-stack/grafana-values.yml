@@ -1,0 +1,58 @@
+
+# Grafana configuration
+grafana:
+  enabled: true
+  adminUser: admin
+  adminPassword: admin-admin   # Change this password!
+  ingress:
+    enabled: false  # Set to true if you want to use ingress for Grafana
+  service:
+    type: ClusterIP  # You can use ClusterIP or NodePort depending on your setup
+    port: 80
+  # Define the dashboards you want to load
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+  dashboards:
+    default:
+      node-exporter-full:
+        gnetId: 1860  # Grafana.com dashboard id for node-exporter-full
+        revision: 2
+        datasource: Prometheus  # Name of the data source defined below
+
+  # Configuration for Prometheus as the default data source
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://prometheus-kube-prometheus-prometheus.monitoring.svc:9090  # Prometheus service URL
+          access: proxy
+          isDefault: true
+
+# Persistence configuration to retain dashboards and settings
+persistence:
+  enabled: true
+  storageClassName: ""  # Use your storage class or leave empty for default
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+
+# Set resource limits for Grafana
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi

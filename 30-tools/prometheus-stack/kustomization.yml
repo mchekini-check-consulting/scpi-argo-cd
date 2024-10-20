@@ -13,3 +13,9 @@ helmCharts:
     releaseName: prometheus
     version: 25.27.0
     valuesFile: values.yml
+
+  - name: grafana
+    repo: https://grafana.github.io/helm-charts
+    releaseName: grafana
+    version: 8.5.8
+    valuesFile: grafana-values.yml
