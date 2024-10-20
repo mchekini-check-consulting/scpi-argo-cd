@@ -3,7 +3,7 @@
 grafana:
   enabled: true
   adminUser: admin
-  adminPassword: admin-admin   # Change this password!
+  adminPassword: GrafanaAdmin123!
   ingress:
     enabled: false  # Set to true if you want to use ingress for Grafana
   service:
