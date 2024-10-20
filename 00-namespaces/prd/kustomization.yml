@@ -18,3 +18,4 @@ resources:
   - scpi-invest-prd.yml
   - matomo.yml
   - monitoring.yml
+  - prometheus-stack.yml
