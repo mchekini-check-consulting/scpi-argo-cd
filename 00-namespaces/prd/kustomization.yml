@@ -19,3 +19,4 @@ resources:
   - matomo.yml
   - monitoring.yml
   - prometheus-stack.yml
+  - kafka.yml
