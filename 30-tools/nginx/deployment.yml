@@ -12,6 +12,8 @@ spec:
   template:
     metadata:
       name: nginx
+      annotations:
+         configmap-reload-timestamp: "{{ now }}"
       labels:
         app: nginx
     spec:
