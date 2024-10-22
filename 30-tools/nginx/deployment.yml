@@ -13,7 +13,7 @@ spec:
     metadata:
       name: nginx
       annotations:
-         configmap-reload-timestamp: "{{ now }}"
+         configmap-version : "5"
       labels:
         app: nginx
     spec:
