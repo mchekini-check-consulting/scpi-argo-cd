@@ -13,7 +13,7 @@ spec:
     metadata:
       name: nginx
       annotations:
-         configmap-version : "5"
+         configmap-version : "6"
       labels:
         app: nginx
     spec:
