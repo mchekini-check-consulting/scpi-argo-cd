@@ -9,21 +9,18 @@ prometheusOperator:
 
 
 
-prometheus.yml:
-
-  scrape_configs:
-    - job_name: 'scpi-invest-api'
-      scrape_interval: 15s
-      metrics_path: '/actuator/prometheus'
-      static_configs:
-        - targets: [ 'scpi-invest-api.scpi-invest-int:8080' ]
-
 
 
 prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
 
+extraScrapeConfigs: |
+  - job_name: 'scpi-invest-api'
+    scrape_interval: 15s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['scpi-invest-api.scpi-invest-int:8080']
 
 # Configuration for Alertmanager
 alertmanager:
