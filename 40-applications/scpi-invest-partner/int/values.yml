@@ -1,0 +1,10 @@
+image:
+  tag: 9d3a2ccb76420f64e10b7e316bb46f6ef11771d7
+
+
+ingressPrefix: int
+
+
+
+application:
+  environment: int
