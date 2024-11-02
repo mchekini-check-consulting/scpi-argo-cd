@@ -3,16 +3,16 @@ harborAdminPassword: "mchekini-test"
 # Expose Service Configuration
 expose:
   type: clusterIP            # Exposition via Ingress
-#  tls:
-#    enabled: true          # Activez TLS pour sécuriser l'accès
-#    certSource: auto       # Permet de générer automatiquement le certificat (auto-signé)
-#  ingress:
-#    hosts:
-#      core: harbor.example.com  # Remplacez par votre domaine pour Harbor
-#    annotations:
-#      nginx.ingress.kubernetes.io/ssl-redirect: "true"
-#      nginx.ingress.kubernetes.io/proxy-body-size: "0"
-#  externalURL: https://harbor.example.com  # Lien externe pour accéder à Harbor
+  tls:
+    enabled: true          # Activez TLS pour sécuriser l'accès
+    certSource: auto       # Permet de générer automatiquement le certificat (auto-signé)
+  ingress:
+    hosts:
+      core: harbor.check-consulting.net  # Remplacez par votre domaine pour Harbor
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  externalURL: https://harbor.check-consulting.net  # Lien externe pour accéder à Harbor
 
 # Base de Données
 database:
