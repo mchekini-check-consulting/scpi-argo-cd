@@ -1,22 +1,12 @@
 # values.yml
 
-harborAdminPassword: "admin_password"
+adminPassword: "admin_password"
 
 externalURL: "https://harbor.check-consulting.net"
 
 # Ingress pour exposer Harbor
 ingress:
-  enabled: true
-  hosts:
-    core: harbor.check-consulting.net  # Assurez-vous que ce domaine est correctement configuré dans votre DNS
-  annotations:
-    kubernetes.io/ingress.class: "nginx"  # Utilisez la classe d'Ingress correspondant à votre cluster
-    nginx.ingress.kubernetes.io/proxy-body-size: "0"  # Permet d'accepter des images de grande taille
-
-  tls:
-    - hosts:
-        - harbor.check-consulting.net
-      secretName: harbor-tls
+  enabled: false
 
 postgresql:
   enabled: true

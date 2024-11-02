@@ -5,6 +5,7 @@ namespace: harbor
 
 resources:
   - certificate.yml
+  - ingress.yml
 
 
 helmCharts:
