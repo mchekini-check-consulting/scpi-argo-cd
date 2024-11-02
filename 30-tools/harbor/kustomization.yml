@@ -9,8 +9,8 @@ resources:
 
 
 helmCharts:
-  - name: harbor/harbor
+  - name: harbor
     repo: https://helm.goharbor.io
-    releaseName: harbor/harbor
+    releaseName: harbor
     version: 1.15.0
     valuesFile: values.yml
