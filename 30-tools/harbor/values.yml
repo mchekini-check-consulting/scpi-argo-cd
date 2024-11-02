@@ -4,7 +4,10 @@ harborAdminPassword: "mchekini-test"
 expose:
   type: clusterIP            # Exposition via Ingress
   tls:
-    enabled: true          # Activez TLS pour sécuriser l'accès
+    enabled: false          # Activez TLS pour sécuriser l'accès
+    auto:
+      tls:
+          commonName: ""
     certSource: auto       # Permet de générer automatiquement le certificat (auto-signé)
   ingress:
     hosts:
