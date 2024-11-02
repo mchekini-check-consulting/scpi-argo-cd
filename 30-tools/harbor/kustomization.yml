@@ -9,7 +9,7 @@ resources:
 
 
 helmCharts:
-  - name: harbor
+  - name: harbor/harbor
     repo: https://helm.goharbor.io
     releaseName: harbor
     version: 1.15.1
