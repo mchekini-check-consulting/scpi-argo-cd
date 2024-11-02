@@ -19,9 +19,9 @@ spec:
             - containerPort: 8080
           env:
             - name: KAFKA_CLUSTERS_0_NAME
-              value: "cluster-name"
+              value: "scpi-invest"
             - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
-              value: "kafka:9094"
+              value: "kafka-svc:9094"
             - name: KAFKA_CLUSTERS_0_ZOOKEEPER
               value: "zookeeper:2181"
 ---
