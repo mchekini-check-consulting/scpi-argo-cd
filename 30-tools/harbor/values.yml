@@ -28,22 +28,3 @@ redis:
   type: internal                # Utilisation de Redis interne
   internal:
     password: "redis_password"  # Mot de passe pour Redis, à personnaliser
-
-# Persistance des Données
-persistence:
-  enabled: true
-  persistentVolumeClaim:
-    registry:
-      size: 5Gi                 # Espace de stockage pour les images
-    jobservice:
-      size: 1Gi                 # Espace de stockage pour le service de gestion des jobs
-    database:
-      size: 1Gi                 # Espace de stockage pour la base de données
-    redis:
-      size: 1Gi                 # Espace de stockage pour Redis
-
-# Stockage des Images (Filesystem)
-imageChartStorage:
-  type: filesystem              # Utilisation du système de fichiers pour stocker les images
-  filesystem:
-    rootdirectory: /storage
