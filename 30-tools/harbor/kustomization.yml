@@ -12,5 +12,5 @@ helmCharts:
   - name: harbor
     repo: https://charts.bitnami.com/bitnami
     releaseName: harbor
-    version: 24.0.1
+    version: 23.0.1
     valuesFile: values.yml
