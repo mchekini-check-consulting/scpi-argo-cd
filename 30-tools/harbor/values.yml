@@ -1,43 +1,46 @@
-# values.yml
+harborAdminPassword: "mchekini-test"
 
-adminPassword: "admin_password"
+# Expose Service Configuration
+expose:
+  type: clusterIP            # Exposition via Ingress
+#  tls:
+#    enabled: true          # Activez TLS pour sécuriser l'accès
+#    certSource: auto       # Permet de générer automatiquement le certificat (auto-signé)
+#  ingress:
+#    hosts:
+#      core: harbor.example.com  # Remplacez par votre domaine pour Harbor
+#    annotations:
+#      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+#  externalURL: https://harbor.example.com  # Lien externe pour accéder à Harbor
 
-externalURL: "https://harbor.check-consulting.net"
+# Base de Données
+database:
+  type: internal                # Utilisation de la base de données interne (PostgreSQL)
+  internal:
+    password: "db_password"     # Mot de passe pour PostgreSQL interne, à personnaliser
 
-# Ingress pour exposer Harbor
-ingress:
-  enabled: false
-
-postgresql:
-  enabled: true
-  postgresqlPassword: "postgres_password"
-
+# Redis
 redis:
-  enabled: true
-  password: "redis_password"
+  type: internal                # Utilisation de Redis interne
+  internal:
+    password: "redis_password"  # Mot de passe pour Redis, à personnaliser
 
-# Stockage des données
+# Persistance des Données
 persistence:
   enabled: true
   persistentVolumeClaim:
     registry:
-      size: 10Gi  # Taille du stockage pour le registre
+      size: 5Gi                 # Espace de stockage pour les images
     jobservice:
-      size: 1Gi   # Taille du stockage pour le service de jobs
+      size: 1Gi                 # Espace de stockage pour le service de gestion des jobs
     database:
-      size: 5Gi   # Taille du stockage pour la base de données
+      size: 1Gi                 # Espace de stockage pour la base de données
     redis:
-      size: 1Gi   # Taille du stockage pour Redis
+      size: 1Gi                 # Espace de stockage pour Redis
 
-# Désactiver les composants optionnels pour simplifier la configuration
-chartmuseum:
-  enabled: false
-
-clair:
-  enabled: false
-
-notary:
-  enabled: false
-
-trivy:
-  enabled: false
+# Stockage des Images (Filesystem)
+imageChartStorage:
+  type: filesystem              # Utilisation du système de fichiers pour stocker les images
+  filesystem:
+    rootdirectory: /storage
