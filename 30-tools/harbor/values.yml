@@ -7,7 +7,7 @@ externalURL: "https://harbor.check-consulting.net"
 
 # Ingress pour exposer Harbor
 ingress:
-  enabled: true
+  enabled: false
   hosts:
     core: harbor.check-consulting.net  # Assurez-vous que ce domaine est correctement configuré dans votre DNS
   annotations:
