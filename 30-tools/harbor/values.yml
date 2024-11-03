@@ -2271,7 +2271,7 @@ registry:
 notary:
   ## @param notary.enabled Enable Notary
   ##
-  enabled: true
+  enabled: false
   ## @param notary.secretName Fill the name of a kubernetes secret if you want to use your own TLS certificate authority, certificate and private key for notary communications. The secret must contain keys named `notary-signer-ca.crt`, `notary-signer.key` and `notary-signer.crt` that contain the CA, certificate and private key. They will be generated if not set.
   ## TLS certificate authority, certificate and private key for notary
   ## communications.
