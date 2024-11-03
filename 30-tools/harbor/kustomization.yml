@@ -3,14 +3,14 @@ kind: Kustomization
 namespace: harbor
 
 
-#resources:
-#  - certificate.yml
-#  - ingress.yml
-#
-#
-#helmCharts:
-#  - name: harbor
-#    repo: https://charts.bitnami.com/bitnami
-#    releaseName: harbor
-#    version: 23.0.1
-#    valuesFile: values.yml
+resources:
+  - certificate.yml
+  - ingress.yml
+
+
+helmCharts:
+  - name: harbor
+    repo: https://charts.bitnami.com/bitnami
+    releaseName: harbor
+    version: 17.1.2
+    valuesFile: values.yml
