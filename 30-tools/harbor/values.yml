@@ -1,30 +1,54 @@
-harborAdminPassword: "mchekini-test"
+# values.yml
 
-# Expose Service Configuration
-expose:
-  type: clusterIP            # Exposition via Ingress
+harborAdminPassword: "admin_password"
+adminPassword: "admin_password"
+
+externalURL: "https://harbor.check-consulting.net"
+
+# Ingress pour exposer Harbor
+ingress:
+  enabled: true
+  hosts:
+    core: harbor.check-consulting.net  # Assurez-vous que ce domaine est correctement configuré dans votre DNS
+  annotations:
+    kubernetes.io/ingress.class: "nginx"  # Utilisez la classe d'Ingress correspondant à votre cluster
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"  # Permet d'accepter des images de grande taille
+
   tls:
-    enabled: false          # Activez TLS pour sécuriser l'accès
-    auto:
-      tls:
-          commonName: ""
-    certSource: auto       # Permet de générer automatiquement le certificat (auto-signé)
-  ingress:
-    hosts:
-      core: harbor.check-consulting.net  # Remplacez par votre domaine pour Harbor
-    annotations:
-      nginx.ingress.kubernetes.io/ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/proxy-body-size: "0"
-  externalURL: https://harbor.check-consulting.net  # Lien externe pour accéder à Harbor
+    - hosts:
+        - harbor.check-consulting.net
+      secretName: harbor-tls
 
-# Base de Données
-database:
-  type: internal                # Utilisation de la base de données interne (PostgreSQL)
-  internal:
-    password: "db_password"     # Mot de passe pour PostgreSQL interne, à personnaliser
+postgresql:
+  enabled: true
+  postgresqlPassword: "postgres_password"
 
-# Redis
 redis:
-  type: internal                # Utilisation de Redis interne
-  internal:
-    password: "redis_password"  # Mot de passe pour Redis, à personnaliser
+  enabled: true
+  password: "redis_password"
+
+# Stockage des données
+persistence:
+  enabled: true
+  persistentVolumeClaim:
+    registry:
+      size: 10Gi  # Taille du stockage pour le registre
+    jobservice:
+      size: 1Gi   # Taille du stockage pour le service de jobs
+    database:
+      size: 5Gi   # Taille du stockage pour la base de données
+    redis:
+      size: 1Gi   # Taille du stockage pour Redis
+
+# Désactiver les composants optionnels pour simplifier la configuration
+chartmuseum:
+  enabled: false
+
+clair:
+  enabled: false
+
+notary:
+  enabled: false
+
+trivy:
+  enabled: false

@@ -10,7 +10,7 @@ resources:
 
 helmCharts:
   - name: harbor
-    repo: https://helm.goharbor.io
+    repo: https://charts.bitnami.com/bitnami
     releaseName: harbor
-    version: 1.15.0
+    version: 23.0.1
     valuesFile: values.yml
