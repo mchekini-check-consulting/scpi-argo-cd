@@ -1,4 +1,4 @@
-adminPassword: ""
+adminPassword: "admin-password"
 
 externalURL: https://harbor.check-consulting.net
 ## Note: If Harbor is exposed via Ingress, the NGINX server will not be used
