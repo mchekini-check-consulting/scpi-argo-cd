@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: squash
-          image: "squashtm/squash:latest"
+          image: "squashtest/squash:8.0.0"
           ports:
             - containerPort: 8080
           env:
