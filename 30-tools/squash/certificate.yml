@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: squash-tls
+spec:
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: lets-encrypt
+  secretName: squash-tls
+  dnsNames:
+    - squash.check-consulting.net
+  usages:
+    - digital signature
+    - key encipherment

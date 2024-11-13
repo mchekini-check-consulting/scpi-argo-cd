@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: squash
+  namespace: squash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: squash
+  template:
+    metadata:
+      labels:
+        app: squash
+    spec:
+      containers:
+        - name: squash
+          image: "squashtm/squash:latest"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SQUASH_ADMIN_USER
+              value: admin
+            - name: SQUASH_ADMIN_PASSWORD
+              value: admin
+          volumeMounts:
+            - mountPath: /data
+              name: squash-data
+
+      volumes:
+        - name: squash-data
+          persistentVolumeClaim:
+            claimName: squash-pvc
