@@ -20,4 +20,5 @@ resources:
   - monitoring.yml
   - prometheus-stack.yml
   - kafka-ns.yml
+  - squash.yml
   - harbor.yml
